@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+actor User as U
+actor Customer as U1
+actor ItDepartment as P
+actor CyberSecurityTeam as A
+actor TechSupport_finances as SU
+actor HR as HR
+actor Support as TS
+actor PR as PR
+actor Admin as Admin
+
+rectangle "Электронная доска объявлений" {
+  usecase (Main Site) as MS
+  usecase (Database with internal payments) as D
+  usecase (Main Database) as MD
+  usecase (post) as post
+  usecase (Checkout) as CH
+  usecase (Manage Users) as MU
+
+  U --> post: Remove
+  U --> post: Publish
+  U1 --> post: looking
+  post --> MS: going to
+  MS --> MD: stored
+  MS --> CH: payment
+  P --> MS: maintaining
+  HR --> SU: controlling
+  P --> MD: maintaining
+  SU --> CH: reviewing
+  CH --> D: decrypt algorithm
+  A --> D: protecting
+  TS <-- U: ask something
+  TS <-- U1: ask questions
+  HR --> TS: controlling
+  PR --> MD: studying
+  PR --> post: studying
+  Admin --> MU: managing accounts
+  MU --> MD: updating records
+}
+
+@enduml
