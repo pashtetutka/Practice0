@@ -1,0 +1,8 @@
+@startuml
+title Hello World Diagram
+
+actor User
+
+User -> System: Hello World!
+
+@enduml
